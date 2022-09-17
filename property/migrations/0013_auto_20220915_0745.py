@@ -3,7 +3,6 @@
 from django.db import migrations
 import phonenumbers
 
-# migrate --fake property 0012
 
 def filling_owner_pure_phone(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')

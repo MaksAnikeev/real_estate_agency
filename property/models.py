@@ -80,10 +80,14 @@ class Owner(models.Model):
     owner_pure_phone = PhoneNumberField(verbose_name='Нормализованный номер владельца',
                                         region='RU',
                                         blank=True,
+                                        null=True,
                                         )
-    address = models.ManyToManyField(Flat,
-                                      related_name="owners",
-                                      verbose_name='Квартиры в собственности')
+    flat = models.ManyToManyField(Flat,
+                                  related_name="owners",
+                                  verbose_name='Квартиры в собственности')
+
+    def __str__(self):
+        return self.owner
 
 
 # makemigrations
