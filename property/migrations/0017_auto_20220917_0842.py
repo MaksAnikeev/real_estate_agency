@@ -2,7 +2,6 @@
 
 from django.db import migrations
 
-# migrate --fake property 0012
 
 def create_owners(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
