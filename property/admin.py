@@ -6,6 +6,7 @@ class MembershipInline(admin.TabularInline):
     model = Owner.flat.through
     raw_id_fields = ('owner', 'flat')
 
+@admin.register(Flat)
 class FlatAdmin(admin.ModelAdmin):
     search_fields = ('address', 'town', 'pk',)
     readonly_fields = ["created_at"]
@@ -15,9 +16,11 @@ class FlatAdmin(admin.ModelAdmin):
     raw_id_fields = ('liked_by', )
     inlines = [MembershipInline, ]
 
+@admin.register(Complaint)
 class ComplaintAdmin(admin.ModelAdmin):
     raw_id_fields = ('user', 'flat')
 
+@admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
     search_fields = ('owner',)
     raw_id_fields = ('flat',)
@@ -25,7 +28,3 @@ class OwnerAdmin(admin.ModelAdmin):
     exclude = ['flat']
 
 
-
-admin.site.register(Flat, FlatAdmin)
-admin.site.register(Complaint, ComplaintAdmin)
-admin.site.register(Owner, OwnerAdmin)
