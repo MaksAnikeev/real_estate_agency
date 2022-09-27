@@ -73,10 +73,10 @@ class Owner(models.Model):
     owner = models.CharField('ФИО владельца',
                              max_length=200,
                              db_index=True)
-    owners_phonenumber = models.CharField('Номер владельца',
+    phonenumber = models.CharField('Номер владельца',
                                           max_length=20,
                                           db_index=True)
-    owner_pure_phone = PhoneNumberField(verbose_name='Нормализованный номер владельца',
+    pure_phone = PhoneNumberField(verbose_name='Нормализованный номер владельца',
                                         region='RU',
                                         blank=True,
                                         null=True,
@@ -89,8 +89,3 @@ class Owner(models.Model):
 
     def __str__(self):
         return self.owner
-
-
-# makemigrations
-# migrate
-# runserver
