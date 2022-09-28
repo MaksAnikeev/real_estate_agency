@@ -7,11 +7,6 @@ from django.contrib.auth.models import User
 def filling_liked_by(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Flat.objects.all().update(liked_by=set(User.objects.all()))
-    # for flat in Flat.objects.all():
-    #     users = User.objects.all()
-    #     flat.liked_by.set(users)
-
-
 
 class Migration(migrations.Migration):
 
